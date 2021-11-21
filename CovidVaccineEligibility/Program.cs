@@ -1,8 +1,8 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+
 namespace CovidVaccineEligibility
 {
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Extensions.Hosting;
-
     public class Program
     {
         public static void Main(string[] args)

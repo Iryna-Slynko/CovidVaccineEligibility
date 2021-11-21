@@ -1,10 +1,10 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace CovidVaccineEligibility
+﻿namespace CovidVaccineEligibility
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
     /*
-     * Which Vaccine: Based on the details entered, use the table 						
+     * Which Vaccine: Based on the details entered, use the table
      * below to determine which vaccine the person is most likely to get.
      * 
     Age     Gender      Vaccine
@@ -51,7 +51,8 @@ namespace CovidVaccineEligibility
             {
                 string Message = "";
 
-                if(age > 35 && gender.Equals(Gender.Male) ) {
+                if (age > 35 && gender.Equals(Gender.Male))
+                {
                     Message = SuitableVaccines.AstraZeneca + " is the most suitable vaccine for you.";
                 }
                 else if (age > 35 && gender.Equals(Gender.Female))
@@ -70,6 +71,7 @@ namespace CovidVaccineEligibility
                 {
                     Message = SuitableVaccines.JohnsonAndJohnson + " is the most suitable vaccine for you.";
                 }
+
                 return "You are " + this.age + " and " + this.gender + ". " + Message;
             }
         }

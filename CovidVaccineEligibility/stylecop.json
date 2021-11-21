@@ -1,11 +1,16 @@
 {
   "settings": {
+    "orderingRules": {
+      "usingDirectivesPlacement": "outsideNamespace"
+    },
     "documentationRules": {
       "documentInterfaces": false,
       "documentExposedElements": false,
       "documentPrivateElements": false,
       "documentInternalElements": false,
-      "documentPrivateFields": false
+      "documentPrivateFields": false,
+      "xmlHeader": false
+      
     }
   }
 }

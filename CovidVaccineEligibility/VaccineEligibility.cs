@@ -1,78 +1,51 @@
-﻿namespace CovidVaccineEligibility
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace CovidVaccineEligibility
 {
-    using System;
-    using System.ComponentModel.DataAnnotations;
-
-    /*
-     * Which Vaccine: Based on the details entered, use the table
-     * below to determine which vaccine the person is most likely to get.
-     * 
-    Age     Gender      Vaccine
-    >50     Male        AstraZeneca
-    >50     Female      Pfizer
-    >35     Male        AstraZeneca
-    >35     Female      Pfizer
-    >20     Male        Johnson & Johnson
-    >20     Female      AstraZeneca
-    <20     All         Johnson & Johnson
-     */
-    public enum SuitableVaccines
-    {
-        [Display(Name = "AstraZeneca")] AstraZeneca,
-        [Display(Name = "Pfizer")] Pfizer,
-        [Display(Name = "Johnson & Johnson")] JohnsonAndJohnson
-    }
-
-    public enum Gender
-    {
-        Male,
-        Female,
-        [Display(Name = "Don't want to declared")]
-        DontWantToDeclare
-    }
-
-    //Class to present to the Internet
+    /// <summary>
+    /// Class to present to the Internet
+    /// </summary>
     public class VaccineEligibility
     {
-        public const int ageMin = 12;
-        public const int ageMax = 110;
+        public const int AgeMin = 12;
+        public const int AgeMax = 110;
 
-        public string name { get; set; }
-        public Gender gender { get; set; }
+        public string Name { get; set; }
 
-        [Range(ageMin, ageMax, ErrorMessage = "Invalid age - Vaccine Only Available from 12 to 110")]
-        public int age { get; set; }
+        public Gender Gender { get; set; }
 
+        [Range(AgeMin, AgeMax, ErrorMessage = "Invalid age - Vaccine Only Available from 12 to 110")]
+        public int Age { get; set; }
 
         // calculate which vaccine is most suitable
-        public string vaccine
+        public string Vaccine
         {
             get
             {
-                string Message = "";
-
-                if (age > 35 && gender.Equals(Gender.Male))
+                string message;
+                if (this.Age > 35 && this.Gender.Equals(Gender.Male))
                 {
-                    Message = SuitableVaccines.AstraZeneca + " is the most suitable vaccine for you.";
+                    message = SuitableVaccines.AstraZeneca + " is the most suitable vaccine for you.";
                 }
-                else if (age > 35 && gender.Equals(Gender.Female))
+                else if (this.Age > 35 && this.Gender.Equals(Gender.Female))
                 {
-                    Message = SuitableVaccines.Pfizer + " is the most suitable vaccine for you.";
+                    message = SuitableVaccines.Pfizer + " is the most suitable vaccine for you.";
                 }
-                else if (age > 20 && gender.Equals(Gender.Male))
+                else if (this.Age > 20 && this.Gender.Equals(Gender.Male))
                 {
-                    Message = SuitableVaccines.JohnsonAndJohnson + " is the most suitable vaccine for you.";
+                    message = SuitableVaccines.JohnsonAndJohnson + " is the most suitable vaccine for you.";
                 }
-                else if (age > 20 && gender.Equals(Gender.Female))
+                else if (this.Age > 20 && this.Gender.Equals(Gender.Female))
                 {
-                    Message = SuitableVaccines.AstraZeneca + " is the most suitable vaccine for you.";
+                    message = SuitableVaccines.AstraZeneca + " is the most suitable vaccine for you.";
                 }
                 else
                 {
-                    Message = SuitableVaccines.JohnsonAndJohnson + " is the most suitable vaccine for you.";
+                    message = SuitableVaccines.JohnsonAndJohnson + " is the most suitable vaccine for you.";
                 }
 
-                return "You are " + this.age + " and " + this.gender + ". " + Message;
+                return "You are " + this.Age + " and " + this.Gender + ". " + message;
             }
         }
     }

@@ -10,7 +10,7 @@ namespace CovidVaccineEligibility
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            this.Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -22,7 +22,7 @@ namespace CovidVaccineEligibility
 
             services.AddRazorPages().AddRazorPagesOptions(options =>
             {
-                options.Conventions.AddPageRoute("/VaccineEligibility", "");
+                options.Conventions.AddPageRoute("/VaccineEligibility", string.Empty);
             });
         }
 
@@ -36,6 +36,7 @@ namespace CovidVaccineEligibility
             else
             {
                 app.UseExceptionHandler("/Error");
+
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }

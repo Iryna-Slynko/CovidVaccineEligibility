@@ -1,0 +1,11 @@
+{
+  "settings": {
+    "documentationRules": {
+      "documentInterfaces": false,
+      "documentExposedElements": false,
+      "documentPrivateElements": false,
+      "documentInternalElements": false,
+      "documentPrivateFields": false
+    }
+  }
+}

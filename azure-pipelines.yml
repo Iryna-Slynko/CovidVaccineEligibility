@@ -36,3 +36,7 @@ steps:
   inputs:
     checkWarnings: true
     warningThreshold: '0'
+- task: NDependTask@1
+  inputs:
+    Assemblies: true
+    PullRequest2: true

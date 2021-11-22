@@ -20,10 +20,7 @@ namespace CovidVaccineEligibility
         {
             services.AddRazorPages();
 
-            services.AddRazorPages().AddRazorPagesOptions(options =>
-            {
-                options.Conventions.AddPageRoute("/VaccineEligibility", string.Empty);
-            });
+            services.AddRazorPages().AddRazorPagesOptions(options => options.Conventions.AddPageRoute("/VaccineEligibility", string.Empty));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,10 +45,7 @@ namespace CovidVaccineEligibility
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapRazorPages();
-            });
+            app.UseEndpoints(endpoints => endpoints.MapRazorPages());
         }
     }
 }

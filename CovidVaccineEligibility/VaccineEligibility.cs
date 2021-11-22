@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace CovidVaccineEligibility
 {
     /// <summary>
-    /// Class to present to the Internet
+    /// Class to present to the Internet.
     /// </summary>
     public class VaccineEligibility
     {
@@ -45,7 +45,7 @@ namespace CovidVaccineEligibility
                     message = SuitableVaccines.JohnsonAndJohnson + " is the most suitable vaccine for you.";
                 }
 
-                return "You are " + this.Age + " and " + this.Gender + ". " + message;
+                return $"You are {Age} and {Gender}. {message}";
             }
         }
     }

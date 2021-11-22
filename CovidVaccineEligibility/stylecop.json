@@ -3,6 +3,7 @@
     "orderingRules": {
       "usingDirectivesPlacement": "outsideNamespace"
     },
+    
     "documentationRules": {
       "documentInterfaces": false,
       "documentExposedElements": false,

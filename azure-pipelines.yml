@@ -37,7 +37,3 @@ steps:
     checkWarnings: true
     warningThreshold: '1'
     warningFailOption: 'fixed'
-- task: NDependTask@1
-  displayName: 'NDependTask '
-  env:
-    SYSTEM_ACCESSTOKEN: $(system.accesstoken)

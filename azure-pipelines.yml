@@ -38,6 +38,3 @@ steps:
     warningThreshold: '1'
     warningFailOption: 'fixed'
 - task: NDependTask@1
-  inputs:
-    Assemblies: true
-    PullRequest2: true

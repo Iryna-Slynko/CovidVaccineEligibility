@@ -25,5 +25,12 @@ namespace MyNamespace
         {
             Assert.IsTrue(vaccineEligibility.Vaccine.Contains(vaccineName), $"'{vaccineEligibility.Vaccine}' does not include {vaccineName}");
         }
+
+        [Given(@"I am (.*)-year old male")]
+        public void GivenIAm_YearOldMale(int age)
+        {
+            Assert.Fail();
+        }
+
     }
 }

@@ -29,7 +29,9 @@ namespace MyNamespace
         [Given(@"I am (.*)-year old male")]
         public void GivenIAm_YearOldMale(int age)
         {
-            Assert.Fail();
+            vaccineEligibility = new CovidVaccineEligibility.VaccineEligibility();
+            vaccineEligibility.Gender = CovidVaccineEligibility.Gender.Male;
+            vaccineEligibility.Age = age;
         }
 
     }

@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CovidVaccineEligibilityTests", "CovidVaccineEligibilityTests\CovidVaccineEligibilityTests.csproj", "{198E224C-7DBA-43D8-AD03-4724E6078418}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{31E57451-D954-4D31-9282-BAD5180E93C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31E57451-D954-4D31-9282-BAD5180E93C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31E57451-D954-4D31-9282-BAD5180E93C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{198E224C-7DBA-43D8-AD03-4724E6078418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{198E224C-7DBA-43D8-AD03-4724E6078418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{198E224C-7DBA-43D8-AD03-4724E6078418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{198E224C-7DBA-43D8-AD03-4724E6078418}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

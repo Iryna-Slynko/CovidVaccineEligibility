@@ -19,6 +19,20 @@ namespace CovidVaccineEligibility
         public int Age { get; set; }
 
         // calculate which vaccine is most suitable
+        /*
+         * Which Vaccine: Based on the details entered, use the table
+         * below to determine which vaccine the person is most likely to get.
+         *
+        Age Gender      Vaccine
+        >50     Male    AstraZeneca
+        >50     Female  Pfizer
+        >35     Male    AstraZeneca
+        >35     Female  Pfizer
+        >20     Male    Johnson & Johnson
+        >20     Female  AstraZeneca
+        <20     All     Johnson & Johnson
+         */
+
         public string Vaccine
         {
             get
@@ -38,11 +52,11 @@ namespace CovidVaccineEligibility
                 }
                 else if (this.Age > 20 && this.Gender.Equals(Gender.Female))
                 {
-                    message = SuitableVaccines.AstraZeneca + " is the most suitable vaccine for you.";
+                    message = $"{SuitableVaccines.AstraZeneca} is the most suitable vaccine for you.";
                 }
                 else
                 {
-                    message = SuitableVaccines.JohnsonAndJohnson + " is the most suitable vaccine for you.";
+                    message = $"{SuitableVaccines.JohnsonAndJohnson} is the most suitable vaccine for you.";
                 }
 
                 return $"You are {Age} and {Gender}. {message}";

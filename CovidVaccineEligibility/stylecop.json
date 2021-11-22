@@ -3,7 +3,7 @@
     "orderingRules": {
       "usingDirectivesPlacement": "outsideNamespace"
     },
-    
+
     "documentationRules": {
       "documentInterfaces": false,
       "documentExposedElements": false,
@@ -11,7 +11,6 @@
       "documentInternalElements": false,
       "documentPrivateFields": false,
       "xmlHeader": false
-      
     }
   }
 }

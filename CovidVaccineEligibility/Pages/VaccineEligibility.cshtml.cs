@@ -5,18 +5,18 @@ namespace CovidVaccineEligibility.Pages
 {
     public class VaccineEligibilityModel : PageModel
     {
-        [BindProperty]      // bound on POST request
-        public VaccineEligibility vaccineEligibility { get; set; }
-
+        [BindProperty]// bound on POST request
+        public VaccineEligibility VaccineEligibility { get; set; }
 
         // POST, validate
         public IActionResult OnPost()
         {
             // extra validation (probably not that useful, but might be were additional validation can be added)
-            if (vaccineEligibility.Name.Equals(""))
+            if (VaccineEligibility.Name.Equals(string.Empty))
             {
-                ModelState.AddModelError("", "You need to enter your name");
+                ModelState.AddModelError(string.Empty, "You need to enter your name");
             }
+
             return Page();
         }
     }

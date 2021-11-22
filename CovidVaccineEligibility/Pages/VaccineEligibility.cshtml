@@ -12,18 +12,18 @@
         <form method="post" id="form1">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="vaccineEligibility.Name" class="control-label"></label>
-                <input asp-for="vaccineEligibility.Name" class="form-control" />
+                <label asp-for="VaccineEligibility.Name" class="control-label"></label>
+                <input asp-for="VaccineEligibility.Name" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="vaccineEligibility.Age" class="control-label"></label>
-                <input asp-for="vaccineEligibility.Age" class="form-control" />
-                <span asp-validation-for="vaccineEligibility.Age" class="text-danger"></span>
+                <label asp-for="VaccineEligibility.Age" class="control-label"></label>
+                <input asp-for="VaccineEligibility.Age" class="form-control" />
+                <span asp-validation-for="VaccineEligibility.Age" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="vaccineEligibility.Gender" class="control-label"></label>
-                <input asp-for="vaccineEligibility.Gender" class="form-control" />
-                <span asp-validation-for="vaccineEligibility.Gender" class="text-danger"></span>
+                <label asp-for="VaccineEligibility.Gender" class="control-label"></label>
+                <input asp-for="VaccineEligibility.Gender" class="form-control" />
+                <span asp-validation-for="VaccineEligibility.Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Submit" class="btn btn-default" />
@@ -31,7 +31,7 @@
             @if (ViewData.ModelState.IsValid)
             {
                 <div class="form-group">
-                    @Html.DisplayFor(model => model.vaccineEligibility.Vaccine, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DisplayFor(model => model.VaccineEligibility.Vaccine, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             }
         </form>

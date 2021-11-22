@@ -5,7 +5,7 @@ namespace CovidVaccineEligibility
     /*
      * Which Vaccine: Based on the details entered, use the table
      * below to determine which vaccine the person is most likely to get.
-     * 
+     *
     Age     Gender      Vaccine
     >50     Male        AstraZeneca
     >50     Female      Pfizer
@@ -17,8 +17,11 @@ namespace CovidVaccineEligibility
      */
     public enum SuitableVaccines
     {
-        [Display(Name = "AstraZeneca")] AstraZeneca = 0,
-        [Display(Name = "Pfizer")] Pfizer = 1,
-        [Display(Name = "Johnson & Johnson")] JohnsonAndJohnson = 2,
+        [Display(Name = "AstraZeneca")]
+        AstraZeneca = 0,
+        [Display(Name = "Pfizer")]
+        Pfizer = 1,
+        [Display(Name = "Johnson & Johnson")]
+        JohnsonAndJohnson = 2,
     }
 }

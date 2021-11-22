@@ -23,7 +23,7 @@ namespace MyNamespace
         [Then(@"my vaccine is ""(.*)""")]
         public void ThenMyVaccineIs(string vaccineName)
         {
-            Assert.IsTrue(vaccineEligibility.Vaccine.Contains(vaccineName));
+            Assert.IsTrue(vaccineEligibility.Vaccine.Contains(vaccineName), $"'{vaccineEligibility.Vaccine}' does not include {vaccineName}");
         }
     }
 }

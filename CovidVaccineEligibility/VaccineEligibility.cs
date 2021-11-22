@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Reflection;
 
 namespace CovidVaccineEligibility
 {
@@ -59,7 +61,9 @@ namespace CovidVaccineEligibility
                     vaccine = SuitableVaccines.JohnsonAndJohnson;
                 }
 
-                return $"You are {Age} and {Gender}. {vaccine}  is the most suitable vaccine for you.";
+                // based on https://stackoverflow.com/questions/13099834/how-to-get-the-display-name-attribute-of-an-enum-member-via-mvc-razor-code
+                string vaccineDisplayName = vaccine.GetType().GetMember(vaccine.ToString()).First().GetCustomAttribute<DisplayAttribute>().Name;
+                return $"You are {Age} and {Gender}. {vaccineDisplayName} is the most suitable vaccine for you.";
             }
         }
     }

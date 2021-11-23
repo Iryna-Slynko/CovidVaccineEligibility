@@ -44,7 +44,11 @@ steps:
   inputs:
     command: 'test'
     arguments: '--collect - "Code coverage"'
-
+- task: dependency-check-build-task@6
+  inputs:
+    projectName: 'covid-vaccine'
+    scanPath: '**/*.csproj'
+    format: 'HTML'
 - task: SonarCloudAnalyze@1
 - task: SonarCloudPublish@1
   inputs:

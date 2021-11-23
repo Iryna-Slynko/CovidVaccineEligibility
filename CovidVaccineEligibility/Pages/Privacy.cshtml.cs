@@ -4,6 +4,5 @@ namespace CovidVaccineEligibility.Pages
 {
     public class PrivacyModel : PageModel
     {
-
     }
 }

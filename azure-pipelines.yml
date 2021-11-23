@@ -38,7 +38,7 @@ steps:
 - task: BuildQualityChecks@8
   inputs:
     checkWarnings: true
-    warningThreshold: '1'
+    warningThreshold: '5'
     warningFailOption: 'fixed'
 - task: DotNetCoreCLI@2
   inputs:

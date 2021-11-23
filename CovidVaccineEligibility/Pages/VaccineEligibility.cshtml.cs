@@ -12,7 +12,7 @@ namespace CovidVaccineEligibility.Pages
         public IActionResult OnPost()
         {
             // extra validation (probably not that useful, but might be were additional validation can be added)
-            if (VaccineEligibility.Name.Equals(string.Empty))
+            if (VaccineEligibility.Name?.Length == 0)
             {
                 ModelState.AddModelError(string.Empty, "You need to enter your name");
             }

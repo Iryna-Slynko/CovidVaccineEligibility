@@ -21,6 +21,12 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'sonarcloud'
+    scannerMode: 'MSBuild'
+    projectKey: 'Iryna-Slynko_CovidVaccineEligibility'
+    organization: 'iryna-slynko'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -37,11 +43,5 @@ steps:
   inputs:
     command: 'test'
     arguments: '--collect - "Code coverage"'
-- task: SonarQubePrepare@5
-  inputs:
-    SonarQube: 'sonarcloud'
-    scannerMode: 'MSBuild'
-    projectKey: 'Iryna-Slynko_CovidVaccineEligibility'
-    organization: 'iryna-slynko'
     
 - task: SonarQubeAnalyze@5

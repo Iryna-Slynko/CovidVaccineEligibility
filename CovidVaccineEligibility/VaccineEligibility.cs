@@ -61,11 +61,11 @@ namespace CovidVaccineEligibility
                 }
                 else if (this.Age > 35)
                 {
-                    return $"You are {Age}. {GetVaccineName(SuitableVaccines.AstraZeneca)} and {GetVaccineName(SuitableVaccines.Pfizer)} are the most suitable vaccine for you.";
+                    return $"You are {Age}. {GetVaccineName(SuitableVaccines.AstraZeneca)} and {GetVaccineName(SuitableVaccines.Pfizer)} are the most suitable vaccines for you.";
                 }
                 else
                 {
-                    return $"You are {Age}. {GetVaccineName(SuitableVaccines.AstraZeneca)} and {GetVaccineName(SuitableVaccines.JohnsonAndJohnson)} are the most suitable vaccine for you.";
+                    return $"You are {Age}. {GetVaccineName(SuitableVaccines.AstraZeneca)} and {GetVaccineName(SuitableVaccines.JohnsonAndJohnson)} are the most suitable vaccines for you.";
                 }
 
                 // based on https://stackoverflow.com/questions/13099834/how-to-get-the-display-name-attribute-of-an-enum-member-via-mvc-razor-code

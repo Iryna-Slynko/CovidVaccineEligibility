@@ -28,12 +28,13 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    arguments: '--collect - "Code coverage"'
 - task: BuildQualityChecks@8
   inputs:
     checkWarnings: true
     warningThreshold: '1'
     warningFailOption: 'fixed'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    arguments: '--collect - "Code coverage"'
+- task: SonarQubeAnalyze@5

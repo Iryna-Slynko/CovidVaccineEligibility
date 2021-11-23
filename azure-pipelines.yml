@@ -42,4 +42,5 @@ steps:
     SonarQube: 'sonarcloud'
     scannerMode: 'MSBuild'
     projectKey: 'Iryna-Slynko_CovidVaccineEligibility'
+    organization: 'iryna-slynko'
 - task: SonarQubeAnalyze@5

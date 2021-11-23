@@ -37,4 +37,9 @@ steps:
   inputs:
     command: 'test'
     arguments: '--collect - "Code coverage"'
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'sonarcloud'
+    scannerMode: 'MSBuild'
+    projectKey: 'Iryna-Slynko_CovidVaccineEligibility'
 - task: SonarQubeAnalyze@5

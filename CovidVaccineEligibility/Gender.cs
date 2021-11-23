@@ -7,7 +7,7 @@ namespace CovidVaccineEligibility
         Male,
         Female,
         Other,
-        [Display(Name = "Don't want to declared")]
+        [Display(Name = "Don't want to declare")]
         DontWantToDeclare,
     }
 }

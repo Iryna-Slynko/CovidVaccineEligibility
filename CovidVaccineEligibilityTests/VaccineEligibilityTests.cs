@@ -12,10 +12,11 @@ namespace CovidVaccineEligibility.Tests
         [TestMethod()]
         public void GetVaccineTestForChildren()
         {
-            VaccineEligibility vaccineEligibility = new VaccineEligibility();
-
-            vaccineEligibility.Age = 12;
-            vaccineEligibility.Gender = Gender.Female;
+            VaccineEligibility vaccineEligibility = new()
+            {
+                Age = 12,
+                Gender = Gender.Female
+            };
 
             Assert.IsTrue(vaccineEligibility.Vaccine.Contains("Johnson"));
             vaccineEligibility.Age = 12;
@@ -26,10 +27,11 @@ namespace CovidVaccineEligibility.Tests
         [TestMethod()]
         public void GetVaccineTestForFemales()
         {
-            VaccineEligibility vaccineEligibility = new VaccineEligibility();
-
-            vaccineEligibility.Gender = Gender.Female;
-            vaccineEligibility.Age = 21;
+            VaccineEligibility vaccineEligibility = new()
+            {
+                Gender = Gender.Female,
+                Age = 21
+            };
             Assert.IsTrue(vaccineEligibility.Vaccine.Contains("AstraZeneca"), "*" + vaccineEligibility.Vaccine + "* should contain AstraZeneca");
             vaccineEligibility.Age = 36;
             Assert.IsTrue(vaccineEligibility.Vaccine.Contains("Pfizer"));
@@ -40,7 +42,7 @@ namespace CovidVaccineEligibility.Tests
         [TestMethod()]
         public void GetVaccineTestForMales()
         {
-            VaccineEligibility vaccineEligibility = new VaccineEligibility();
+            VaccineEligibility vaccineEligibility = new();
 
             vaccineEligibility.Gender = Gender.Male;
             vaccineEligibility.Age = 21;
@@ -49,6 +51,38 @@ namespace CovidVaccineEligibility.Tests
             Assert.IsTrue(vaccineEligibility.Vaccine.Contains("AstraZeneca"));
             vaccineEligibility.Age = 55;
             Assert.IsTrue(vaccineEligibility.Vaccine.Contains("AstraZeneca"));
+        }
+
+        [TestMethod()]
+        public void GetVaccineTestForOther()
+        {
+            VaccineEligibility vaccineEligibility = new();
+
+            vaccineEligibility.Gender = Gender.Other;
+            vaccineEligibility.Age = 15;
+            Assert.IsTrue(vaccineEligibility.Vaccine.Contains("Johnson"));
+            vaccineEligibility.Age = 21;
+            Assert.IsTrue(vaccineEligibility.Vaccine.Contains("AstraZeneca"));
+            Assert.IsTrue(vaccineEligibility.Vaccine.Contains("Johnson"));
+            vaccineEligibility.Age = 55;
+            Assert.IsTrue(vaccineEligibility.Vaccine.Contains("AstraZeneca"));
+            Assert.IsTrue(vaccineEligibility.Vaccine.Contains("Pfizer"));
+        }
+
+        [TestMethod()]
+        public void GetVaccineTestForUndeclaredGender()
+        {
+            VaccineEligibility vaccineEligibility = new();
+
+            vaccineEligibility.Gender = Gender.DontWantToDeclare;
+            vaccineEligibility.Age = 15;
+            Assert.IsTrue(vaccineEligibility.Vaccine.Contains("Johnson"));
+            vaccineEligibility.Age = 21;
+            Assert.IsTrue(vaccineEligibility.Vaccine.Contains("AstraZeneca"));
+            Assert.IsTrue(vaccineEligibility.Vaccine.Contains("Johnson"));
+            vaccineEligibility.Age = 55;
+            Assert.IsTrue(vaccineEligibility.Vaccine.Contains("AstraZeneca"));
+            Assert.IsTrue(vaccineEligibility.Vaccine.Contains("Pfizer"));
         }
     }
 }

@@ -47,8 +47,9 @@ steps:
     warningFailOption: 'fixed'
 - task: DotNetCoreCLI@2
   inputs:
+    ver
     command: 'test'
-    arguments: '--collect - "Code coverage"'
+    arguments: '--collect "Code coverage"'
 - task: dependency-check-build-task@6
   inputs:
     projectName: 'covid-vaccine'

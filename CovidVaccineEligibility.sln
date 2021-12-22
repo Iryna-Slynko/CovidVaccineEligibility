@@ -14,6 +14,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CovidVaccineEligibilityTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowTests", "SpecFlowTests\SpecFlowTests.csproj", "{472A438C-4551-4F92-A0A6-7E7D6ECBA35D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalTesting", "FunctionalTesting\FunctionalTesting.csproj", "{09233DD1-279F-47AC-99C4-A89E0613B24C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{472A438C-4551-4F92-A0A6-7E7D6ECBA35D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{472A438C-4551-4F92-A0A6-7E7D6ECBA35D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{472A438C-4551-4F92-A0A6-7E7D6ECBA35D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09233DD1-279F-47AC-99C4-A89E0613B24C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09233DD1-279F-47AC-99C4-A89E0613B24C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09233DD1-279F-47AC-99C4-A89E0613B24C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09233DD1-279F-47AC-99C4-A89E0613B24C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

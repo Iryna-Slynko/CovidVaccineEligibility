@@ -23,7 +23,11 @@ namespace FunctionalTesting.Support
 
         internal void GoHome()
         {
-            browserInteractions.GoToUrl("https://covidca3.azurewebsites.net/");
+            string? url = Environment.GetEnvironmentVariable("INTEGRATION_TEST_URL");
+            if (url == null) {
+                url = "https://covidca3.azurewebsites.net/";
+            }
+            browserInteractions.GoToUrl(url);
         }
 
         internal void SubmitForm()

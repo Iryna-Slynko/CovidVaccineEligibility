@@ -41,6 +41,7 @@ steps:
     checkWarnings: true
     warningThreshold: '5'
     warningFailOption: 'fixed'
+  
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'

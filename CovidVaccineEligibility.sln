@@ -14,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CovidVaccineEligibilityTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowTests", "SpecFlowTests\SpecFlowTests.csproj", "{472A438C-4551-4F92-A0A6-7E7D6ECBA35D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumTests", "FunctionalTesting\SeleniumTests.csproj", "{09233DD1-279F-47AC-99C4-A89E0613B24C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumTests", "SeleniumTests\SeleniumTests.csproj", "{09233DD1-279F-47AC-99C4-A89E0613B24C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,5 @@
+﻿<RunSettings>
+	<TestRunParameters>
+		<Parameter name="webAppUrl" value="https://covidca3.azurewebsites.net/">
+	</TestRunParameters>
+</RunSettings>

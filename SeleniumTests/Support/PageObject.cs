@@ -9,7 +9,7 @@ namespace FunctionalTesting.Support
         private readonly IBrowserInteractions browserInteractions;
         private string webAppURL = "https://covidca3.azurewebsites.net/";
 
-        public string WebAppURL { get => webAppURL; internal set
+        public string? WebAppURL { get => webAppURL; internal set
             {
                 if (value != null)
                 {

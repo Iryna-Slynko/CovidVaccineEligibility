@@ -45,7 +45,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    arguments: --collect "Code coverage" --filter 'FullyQualifiedName!~IntegrationTests'
+    arguments: --collect "Code coverage" --filter 'FullyQualifiedName!~SeleniumTests'
 - task: dependency-check-build-task@6
   inputs:
     projectName: 'covid-vaccine'

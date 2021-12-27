@@ -15,14 +15,13 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 jobs:
+  - task: DotNetCoreCLI@2
+    displayName: Restore
+    inputs:
+      command: 'restore'
+
   - job: RunTests
     steps:
-    - task: NuGetToolInstaller@1
-
-    - task: NuGetCommand@2
-      inputs:
-        restoreSolution: '$(solution)'
-
     - task: SonarCloudPrepare@1
       inputs:
         SonarCloud: 'sonarcloud'
@@ -52,7 +51,7 @@ jobs:
       displayName: PublishSeleniumTest
       inputs:
         command: 'publish'
-        arguments: --configuration $(BuildConfiguration) --output "$(Build.ArtifactStagingDirectory)"'
+        arguments: --configuration $(BuildConfiguration) --output "$(Build.ArtifactStagingDirectory)/SeleniumTests/"'
         publishWebProjects: false
         projects: '**/*SeleniumTests.csproj'
         zipAfterPublish: false

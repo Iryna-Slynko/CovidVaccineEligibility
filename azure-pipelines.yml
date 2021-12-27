@@ -51,6 +51,11 @@ steps:
     projectName: 'covid-vaccine'
     scanPath: '**/*.csproj'
     format: 'HTML'
+- task: Copyfiles@2
+  inputs:
+    Contents: '**/PerfTests/*.js'
+    TargetFolder: '$(build.artifactstagingdirectory)/k6'
+    flattenFolders: true
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'

@@ -48,7 +48,7 @@ steps:
     arguments: --collect "Code coverage" --filter 'FullyQualifiedName!~SeleniumTests'
 - task: Copyfiles@2
   inputs:
-    Contents: '**/PerfTests/*.js'
+    Contents: '**/PerfTest/*.js'
     TargetFolder: '$(build.artifactstagingdirectory)/k6'
     flattenFolders: true
 - task: PublishBuildArtifacts@1

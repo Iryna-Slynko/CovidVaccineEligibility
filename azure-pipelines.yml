@@ -14,49 +14,50 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+jobs:
+  - job: Run tests
+    steps:
+    - task: NuGetToolInstaller@1
 
-steps:
-- task: NuGetToolInstaller@1
+    - task: NuGetCommand@2
+      inputs:
+        restoreSolution: '$(solution)'
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+    - task: SonarCloudPrepare@1
+      inputs:
+        SonarCloud: 'sonarcloud'
+        organization: 'iryna-slynko'
+        scannerMode: 'MSBuild'
+        projectKey: 'Iryna-Slynko_CovidVaccineEligibility'
+    - task: VSBuild@1
+      inputs:
+        vsVersion: latest
+        solution: '$(solution)'
+        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+        platform: '$(buildPlatform)'
+        configuration: '$(buildConfiguration)'
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'sonarcloud'
-    organization: 'iryna-slynko'
-    scannerMode: 'MSBuild'
-    projectKey: 'Iryna-Slynko_CovidVaccineEligibility'
-- task: VSBuild@1
-  inputs:
-    vsVersion: latest
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: BuildQualityChecks@8
-  inputs:
-    checkWarnings: true
-    warningThreshold: '5'
-    warningFailOption: 'fixed'
-  
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'test'
-    arguments: --collect "Code coverage" --filter 'FullyQualifiedName!~SeleniumTests'
-- task: Copyfiles@2
-  inputs:
-    Contents: '**/PerfTest/*.js'
-    TargetFolder: '$(build.artifactstagingdirectory)/k6'
-    flattenFolders: true
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-- task: SonarCloudAnalyze@1
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
+    - task: BuildQualityChecks@8
+      inputs:
+        checkWarnings: true
+        warningThreshold: '5'
+        warningFailOption: 'fixed'
+      
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'test'
+        arguments: --no-build --collect "Code coverage" --filter 'FullyQualifiedName!~SeleniumTests'
+    - task: Copyfiles@2
+      inputs:
+        Contents: '**/PerfTest/*.js'
+        TargetFolder: '$(build.artifactstagingdirectory)/k6'
+        flattenFolders: true
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+    - task: SonarCloudAnalyze@1
+    - task: SonarCloudPublish@1
+      inputs:
+        pollingTimeoutSec: '300'

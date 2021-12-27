@@ -46,11 +46,6 @@ steps:
   inputs:
     command: 'test'
     arguments: --collect "Code coverage" --filter 'FullyQualifiedName!~SeleniumTests'
-- task: dependency-check-build-task@6
-  inputs:
-    projectName: 'covid-vaccine'
-    scanPath: '**/*.csproj'
-    format: 'HTML'
 - task: Copyfiles@2
   inputs:
     Contents: '**/PerfTests/*.js'

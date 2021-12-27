@@ -51,7 +51,7 @@ jobs:
       displayName: PublishSeleniumTest
       inputs:
         command: 'publish'
-        arguments: --configuration $(BuildConfiguration) --output "$(Build.ArtifactStagingDirectory)/SeleniumTests/"'
+        arguments: --configuration $(BuildConfiguration) --output "$(Build.ArtifactStagingDirectory)\Selenium"'
         publishWebProjects: false
         projects: '**/*SeleniumTests.csproj'
         zipAfterPublish: false

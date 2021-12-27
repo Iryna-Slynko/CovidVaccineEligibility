@@ -13,12 +13,9 @@ namespace FunctionalTesting.Support
             this.browserInteractions = browserInteractions;
         }
 
-        private IWebElement ageField => browserInteractions.WaitAndReturnElement(By.Id("VaccineEligibility_Age"));
-        private IWebElement genderField => browserInteractions.WaitAndReturnElement(By.Id("VaccineEligibility_Gender"));
-
         internal void SetAge(int age)
         {
-            ageField.SendKeys(age.ToString());
+            browserInteractions.WaitAndReturnElement(By.Id("VaccineEligibility_Age")).SendKeys(age.ToString());
         }
 
         internal void GoHome()
@@ -43,7 +40,7 @@ namespace FunctionalTesting.Support
 
         internal void SetGender(string gender)
         {
-            SelectElement element = new SelectElement(genderField);
+            SelectElement element = new(browserInteractions.WaitAndReturnElement(By.Id("VaccineEligibility_Gender")));
             element.SelectByText(gender);
         }
     }

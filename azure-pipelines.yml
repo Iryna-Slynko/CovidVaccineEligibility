@@ -54,14 +54,18 @@ jobs:
         command: 'test'
         arguments: --collect "Code coverage" --filter 'FullyQualifiedName!~SeleniumTests'
     - task: DotNetCoreCLI@2
-      displayName: PublishSeleniumTest
       inputs:
         command: 'publish'
-        arguments: --configuration $(BuildConfiguration) --output "$(Build.ArtifactStagingDirectory)\Selenium"'
         publishWebProjects: false
         projects: '**/*SeleniumTests.csproj'
+        arguments: '--configuration $(BuildConfiguration) --output "$(Build.ArtifactStagingDirectory)\SeleniumTests"'''
         zipAfterPublish: false
         modifyOutputPath: false
+    - task: Copyfiles@2
+      inputs:
+        Contents: '**/*.runsettings'
+        TargetFolder: '$(build.artifactstagingdirectory)/SeleniumTests'
+        flattenFolders: true
     - task: Copyfiles@2
       inputs:
         Contents: '**/PerfTest/*.js'

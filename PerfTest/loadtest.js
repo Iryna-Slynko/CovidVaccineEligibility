@@ -1,6 +1,7 @@
 import { sleep, group, check } from "k6";
 import http from "k6/http";
 import { randomIntBetween } from 'https://jslib.k6.io/k6-utils/1.1.0/index.js';
+import { Rate } from 'k6/metrics';
 
 export const options = {
   stages: [
@@ -9,9 +10,11 @@ export const options = {
     { target: 0, duration: "1m" },
   ],
   thresholds: {
-    "http_req_duration": ["p(95) < 100"]
+    "http_req_duration": [{   threshold: "p(95) < 100", abortOnFail: true}],
+    'Content OK': ['rate>0.95']
   },
 };
+export const RateContentOK = new Rate('Content OK');
 
 export default function main() {
   let response;
@@ -27,9 +30,7 @@ export default function main() {
         "sec-ch-ua-platform": '"Windows"',
       },
     });
-    check(response, {
-    "is successful": (r) => r.status >= 200 && r.status < 300
-    });
+    RateContentOK.add(response.status >= 200 && response.status < 300);
 
     const vars = {"__RequestVerificationToken": response
       .html()
@@ -60,9 +61,6 @@ export default function main() {
       }
     );
 
-    check(response, {
-      "is successful": (r) => r.status >= 200 && r.status < 300
-      });
-  
+    RateContentOK.add(response.status >= 200 && response.status < 300);
   });
 }

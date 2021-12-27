@@ -50,7 +50,7 @@ jobs:
     - task: Copyfiles@2
       inputs:
         Contents: '**/PerfTest/*.js'
-        TargetFolder: '$(build.artifactstagingdirectory)/k6'
+        TargetFolder: '$(build.artifactstagingdirectory)/PerfTest'
         flattenFolders: true
     - task: PublishBuildArtifacts@1
       inputs:

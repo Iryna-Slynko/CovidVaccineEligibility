@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SpecFlow.Actions.Selenium;
 
@@ -49,5 +50,20 @@ namespace FunctionalTesting.Support
             SelectElement element = new(browserInteractions.WaitAndReturnElement(By.Id("VaccineEligibility_Gender")));
             element.SelectByText(gender);
         }
+
+        internal void ClickOn(string text)
+        {
+            var elements = browserInteractions.WaitAndReturnElements(By.TagName("a"));
+            foreach (var element in elements)
+            {
+                if (element.Text == text)
+                {
+                    element.Click();
+                    return;
+                }
+            }
+            Assert.Fail($"Could not find link with '{text}' text");
+        }
+
     }
 }

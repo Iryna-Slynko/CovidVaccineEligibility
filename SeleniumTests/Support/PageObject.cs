@@ -7,6 +7,16 @@ namespace FunctionalTesting.Support
     internal class PageObject
     {
         private readonly IBrowserInteractions browserInteractions;
+        private string webAppURL = "https://covidca3.azurewebsites.net/";
+
+        public string WebAppURL { get => webAppURL; internal set
+            {
+                if (value != null)
+                {
+                    webAppURL = value;
+                }
+            }
+        }
 
         public PageObject(IBrowserInteractions browserInteractions)
         {
@@ -20,11 +30,7 @@ namespace FunctionalTesting.Support
 
         internal void GoHome()
         {
-            string? url = Environment.GetEnvironmentVariable("INTEGRATION_TEST_URL");
-            if (url == null) {
-                url = "https://covidca3.azurewebsites.net/";
-            }
-            browserInteractions.GoToUrl(url);
+            browserInteractions.GoToUrl(webAppURL);
         }
 
         internal void SubmitForm()

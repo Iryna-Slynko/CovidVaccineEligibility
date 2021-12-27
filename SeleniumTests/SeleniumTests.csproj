@@ -26,16 +26,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Staging.Designer.cs">
+    <Compile Update="Local.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Staging.runsettings</DependentUpon>
+      <DependentUpon>Local.runsettings</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="SpecFlow.Actions.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Local.runsettings">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <LastGenOutput>Local.Designer.cs</LastGenOutput>
+      <Generator>SettingsSingleFileGenerator</Generator>
     </None>
     <None Update="Staging.runsettings">
       <Generator>SettingsSingleFileGenerator</Generator>

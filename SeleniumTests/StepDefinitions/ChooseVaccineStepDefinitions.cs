@@ -12,6 +12,7 @@ namespace FunctionalTesting.StepDefinitions
         public ChooseVaccineStepDefinitions(PageObject pageObject)
         {
             this.pageObject = pageObject;
+            pageObject.WebAppURL = TestContext.Parameters["webAppUrl"];
         }
 
         [Given(@"I am on home page")]

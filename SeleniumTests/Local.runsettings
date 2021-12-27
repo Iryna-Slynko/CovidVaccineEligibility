@@ -1,0 +1,5 @@
+﻿<RunSettings>
+	<TestRunParameters>
+		<Parameter name="webAppUrl" value="https://localhost:44377/" />
+	</TestRunParameters>
+</RunSettings>

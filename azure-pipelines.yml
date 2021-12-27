@@ -46,7 +46,7 @@ jobs:
     - task: DotNetCoreCLI@2
       inputs:
         command: 'test'
-        arguments: --no-build --collect "Code coverage" --filter 'FullyQualifiedName!~SeleniumTests'
+        arguments: --collect "Code coverage" --filter 'FullyQualifiedName!~SeleniumTests'
     - task: Copyfiles@2
       inputs:
         Contents: '**/PerfTest/*.js'

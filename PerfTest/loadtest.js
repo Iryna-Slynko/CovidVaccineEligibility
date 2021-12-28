@@ -10,7 +10,7 @@ export const options = {
     { target: 0, duration: "1m" },
   ],
   thresholds: {
-    "http_req_duration": [{   threshold: "p(95) < 100", abortOnFail: true}],
+    "http_req_duration": [{   threshold: "p(95) < 200"}],
     'Content OK': ['rate>0.95']
   },
 };

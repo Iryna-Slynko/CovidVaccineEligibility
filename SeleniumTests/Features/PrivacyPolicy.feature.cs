@@ -109,6 +109,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
  testRunner.Then("I see \"Use this page to detail your site\'s privacy policy\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 10
+ testRunner.When("I click on \"Home\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 11
+ testRunner.Then("I see \"Vaccine Eligibility Calculator\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

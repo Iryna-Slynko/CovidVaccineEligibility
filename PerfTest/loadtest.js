@@ -5,9 +5,12 @@ import { Rate } from 'k6/metrics';
 
 export const options = {
   stages: [
+    { target: 20, duration: "20s" },
+    /*
     { target: 20, duration: "1m" },
-    { target: 20, duration: "3m30s" },
+    //{ target: 20, duration: "3m30s" },
     { target: 0, duration: "1m" },
+    */
   ],
   thresholds: {
     "http_req_duration": [{   threshold: "p(95) < 200"}],

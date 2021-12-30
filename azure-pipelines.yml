@@ -57,6 +57,11 @@ jobs:
         Contents: '**/PerfTest/*.js'
         TargetFolder: '$(build.artifactstagingdirectory)/PerfTest'
         flattenFolders: true
+    - task: Copyfiles@2
+      inputs:
+        Contents: 'zap-config'
+        TargetFolder: '$(build.artifactstagingdirectory)/'
+        flattenFolders: true
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'

@@ -18,7 +18,8 @@ jobs:
         publishWebProjects: false
         projects: 'SeleniumTests/SeleniumTests.csproj'
         arguments: '--configuration $(BuildConfiguration) --output "$(Build.ArtifactStagingDirectory)\SeleniumTests"'
-
+        zipAfterPublish: false
+        
     - task: SonarCloudPrepare@1
       inputs:
         SonarCloud: 'sonarcloud'

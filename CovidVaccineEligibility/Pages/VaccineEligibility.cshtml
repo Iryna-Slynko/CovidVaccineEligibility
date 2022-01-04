@@ -11,24 +11,24 @@
     <div class="col-md-4">
         <form method="post" id="form1">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="VaccineEligibility.Name" class="control-label"></label>
+            <div class="form-group p-2">
+                <label asp-for="VaccineEligibility.Name" class="control-label form-label"></label>
                 <input asp-for="VaccineEligibility.Name" class="form-control" />
             </div>
-            <div class="form-group">
-                <label asp-for="VaccineEligibility.Age" class="control-label"></label>
+            <div class="form-group p-2">
+                <label asp-for="VaccineEligibility.Age" class="control-label form-label"></label>
                 <input asp-for="VaccineEligibility.Age" class="form-control" />
                 <span asp-validation-for="VaccineEligibility.Age" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="VaccineEligibility.Gender" class="control-label"></label>
+            <div class="form-group p-2">
+                <label asp-for="VaccineEligibility.Gender" class="control-label form-label"></label>
                 @Html.DropDownListFor(m => m.VaccineEligibility.Gender,
                  Html.GetEnumSelectList(typeof(Gender)),
                 "Select Gender")
                 <span asp-validation-for="VaccineEligibility.Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-default" />
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
             @if (ViewData.ModelState.IsValid)
             {
